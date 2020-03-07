@@ -1,0 +1,65 @@
+body {
+  background-image : url("background.png");
+}
+
+.title{
+  background-color:#ffffff;
+  opacity: 0.7;
+  margin-bottom:10px; 
+  border-bottom: solid 3px #5989cf;
+
+}
+.top {
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 40px;
+    margin-top: 15;
+    margin-left: 20;
+    color: #000000;
+    padding: 0.5em 0;
+}
+
+.caption {
+  padding: 0px 10px;
+  border-radius: 5px;
+  color: #000000;
+  width: 100px;
+  border:solid 1px #aaaab0
+}
+
+.rectangle {
+  border: 4px outset #578a3d;
+  padding: 10px 10px 10 0;
+  background-color:#6b8e23;
+  margin-bottom: 20px;
+  width:500px;
+}
+
+/*検索ボックス*/
+.form5{
+  margin-bottom:20px;
+}
+.sbox5{
+  outline:0;
+  height:30px;
+  padding:0 10px; 
+  left:0;
+  top:0; 
+  max-width:270px;
+  border-radius:2px;
+  background:#ffffff;
+  border:inset 2px #aaa;
+  
+}
+.sbtn5{
+  width:70px;
+  height:30px;
+  left:280px; 
+  top:0;
+  border-radius:2px;
+  background:#d2d2d2;
+  color:#000;
+  font-weight:bold;
+  font-size:16px;
+  border:outset 3px #aaa;
+}

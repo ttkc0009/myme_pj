@@ -1,0 +1,40 @@
+header{
+   background: #BBD2C5;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #292E49, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #eee, #c8c8c8, #444); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* メニュー用CSS */
+ul{
+    display: table;
+    /*marginをコメントアウトで検索用のスペースができる*/
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+ul li{
+    display: table-cell;
+    min-width: 50px;
+    border: 1px solid #aaa;
+
+}
+ul li a{
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #999;
+    font-weight: bold;
+    background-color:#ddd;
+}
+ul li.current{
+    border: 3px solid #E71B1F;
+}
+ul li.current a{
+    color: #E71B1F;
+}
+ul li a:hover{
+    color: #E71B1F;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"-->
+
+<script src="../static/js/common.js" type="text/javascript"></script>
+<link href="../static/css/common.css" rel="stylesheet">
+<link href="../static/css/head.css" rel="stylesheet"/>
+<link rel="shortcut icon" href="../static/img/favicon.ico">
+
+</head>
+
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<header>
+   <nav class="navbar navbar-dark">
+      <div class="container">
+         <a href="/home" class="navbar-brand col-xs-8">ヘッダータイトル</a>
+      </div>
+   </nav>
+</header>
+<nav class="sticky-top" style="background-color: #dfdfdf;">
+   <ul>
+      <li id="home"   {% ifequal current 'home' %} class="current" {% endifequal %}><a href="/home">Home</a></li>
+      <li id="news"   {% ifequal current 'news' %} class="current" {% endifequal %}><a href="/home/news">News</a></li>
+      <li id="about"  {% ifequal current 'about' %} class="current" {% endifequal %}><a href="/home/about">About</a></li>
+      <li id="blog"   {% ifequal current 'blog' %} class="current" {% endifequal %}><a href="/home/blog">Blog</a></li>
+      <li id="access" {% ifequal current 'access' %} class="current" {% endifequal %}><a href="/home/access">Access</a></li>
+      <li id="other"  {% ifequal current 'other' %} class="current" {% endifequal %}><a href="/home/other">Other</a></li>
+   </ul>
+</nav>
+
+{% block content %}
+{% endblock %}
+</body>

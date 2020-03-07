@@ -1,0 +1,8 @@
+{
+    "debug_mode":true,
+    "db_conf":{
+        "table_name":"chat_vocablary",
+        "host":"localhost",
+        "port":6379
+    }
+}

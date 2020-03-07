@@ -1,0 +1,92 @@
+{% extends 'base/layout.html' %}
+
+{% block title %}Mymeホームへようこそ{% endblock %}
+
+{% block content %}
+   <div id="talks" class="container" style="margin-bottom:50px">
+
+	   <div class="col-sm-6" style="margin-bottom:20px;">
+	      <div class="card">
+	         <div class="card-header">
+		        chatbotさん
+	         </div>
+	         <div class="card-body">
+	            <p class="card-text">こんにちは！ {{ name }}さん</p>
+	         </div>
+	      </div>
+	   </div>
+	   <div class="col-sm-6 offset-sm-6" style="margin-bottom:20px;">
+	      <div class="card ">
+	        <div class="card-header">
+	           {{ name }}さん
+	        </div>
+	        <div class="card-body">
+	           <p class="card-text">こんにちは！ 人生について教えて</p>
+	        </div>
+	      </div>
+	   </div>
+	   <div class="col-sm-6" style="margin-bottom:20px;">
+	      <div class="card">
+	         <div class="card-header">
+	            chatbotさん
+	         </div>
+	         <div class="card-body">
+	            <p class="card-text">人生について以下がヒットしました！</p>
+	            <a href="https://wiki.yjsnpi.nu/%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%9A%E3%83%BC%E3%82%B8">人生について</a>
+	            <p class="card-text">役に立ちましたか？</p>
+	            <button class="btn btn-primary">はい</button>
+	            <button class="btn btn-danger">いいえ</button>
+	         </div>
+	       </div>
+	   </div>
+	</div>
+
+	<div class="fixed-bottom input-group">
+	    <input id="question" type="text" class="form-control" placeholder="質問を入力してね">
+	    <span class="input-group-btn"><button id="submit" type="button" class="btn btn-success">送信</button></span>
+	</div>
+<script>
+/*TODO ガバガバJavascript 要手直し*/
+name = "{{ name }}";
+temp0 = '<div class="col-sm-6 offset-sm-6" style="margin-bottom:30px;"><div class="card "><div class="card-header">{{ name }}さん</div><div class="card-body"><p class="card-text">'
+temp1 = '</div></div></div>'
+
+ctemp0 = '<div class="col-sm-6" style="margin-bottom:30px;"><div class="card"><div class="card-header">chatbotさん</div><div class="card-body"><p class="card-text">'
+ctemp1 = '</div></div></div>'
+
+$("#submit").click(function(e){
+	var question = $("#question").val()
+	if(question){
+	    $('#talks').append(temp0 + question + temp1);
+	    $("#question").val("");
+	    $(window).scrollTop(1000)
+
+	    $.ajax({
+	        type : "GET",
+	        url : "/api/response/"+question,
+	        dataType : "text",
+	        cache: false,
+	        success : function(data) {
+	            if (data.length > 0){
+	            	sleep(1000);
+	                $('#talks').append(ctemp0 + data + ctemp1);
+	                $(window).scrollTop(1000)
+	            }
+	            return;
+	        },
+	        error : function(XMLHttpRequest, textStatus, errorThrown) {
+	            return;
+	        }
+	    });
+	}
+	function sleep(waitMsec) {
+		var startMsec = new Date();
+		while (new Date() - startMsec < waitMsec);
+	}
+});
+
+
+</script>
+
+
+{% endblock %}
